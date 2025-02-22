@@ -28,5 +28,16 @@ class Post(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     status=models.CharField(max_length=100,choices=status_choice,default='feature')
     updated_at=models.DateTimeField(auto_now=True)
+<<<<<<< HEAD
 
 >>>>>>> a51b610 (categories crud operation)
+=======
+class Comment(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    post=models.ForeignKey(Post,on_delete=models.CASCADE)
+    comments=models.TextField(max_length=200)
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.comments
+>>>>>>> a6a901d (added blog)

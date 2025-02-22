@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -17,80 +18,85 @@
 =======
 {%extends "doc/Base.html"%}
 {%block content%}
+=======
+{% extends "doc/Base.html" %}
+{% block content %}
+>>>>>>> a6a901d (added blog)
 <main>
-
     <section class="py-5 text-center container">
-      <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light">Album example</h1>
-          <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-          <p>
-            <a href="" class="btn btn-primary my-2">Featured post</a>
-            <a href="#" class="btn btn-secondary my-2">Recent post</a>
-          </p>
-        </div>
-      </div>
-    </section>
-  
-    <div class="album py-5 bg-light">
-      <div class="container">
-  
-        <div class="row d-flex row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            {%for feature in featureitem%}
-        <div class="col">
-            <div class="card shadow-sm">
-                <img src="{{feature.img.url}}">
-                <div class="card-body">
-                  <h3>{{feature.name}}</h3>
-                  <p class="card-text"> {{feature.des}}</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{%url 'showdetail' feature.slug%}"class="text-decoration-none fs-6">View</a></button>
-               
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-        </div>
-         
-        
-        
-            {%endfor%}
-        </div>
-       
-         
-    </div>
-    <div class="container">
-  
-        <div class="row d-flex row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            {%for recent in recentitem%}
-            <div class="col">
-               <div class="card shadow-sm">
-                   <img src="{{recent.img.url}}">
-                   <div class="card-body">
-                     <h3>{{recent.name}}</h3>
-                     <p class="card-text"> {{recent.des}}</p>
-                     <div class="d-flex justify-content-between align-items-center">
-                       <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{%url 'showdetail' recent.slug%}"class="text-decoration-none fs-6">View</a></button>
-                      </div>
-                       <small class="text-muted">9 mins</small>
-                     </div>
-                   </div>
-                 </div>
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Album Example</h1>
+                <p class="lead text-muted">
+                    Something short and leading about the collection below—its contents, the creator, etc. 
+                    Make it short and sweet, but not too short so folks don’t simply skip over it entirely.
+                </p>
+                <p>
+                    <a href="{% url 'feature_post'%}" class="btn btn-primary my-2">Featured Post</a>
+                    <a href="{%url 'recent_post'%}" class="btn btn-secondary my-2">Recent Post</a>
+                </p>
             </div>
-            {%endfor%}     
-      
         </div>
-       
-         
-    </div>
-        
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <!-- Featured Items Section -->
+            <div class="row d-flex row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                {% for feature in featureitem %}
+                    <div class="col">
+                        <div class="card shadow-sm h-100 border-0">
+                            <img src="{{ feature.img.url }}" class="card-img-top rounded" alt="{{ feature.name }}">
+                            <div class="card-body">
+                                <h3 class="card-title text-primary">{{ feature.name }}</h3>
+                                <p class="card-text text-muted">{{ feature.des }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="{% url 'showdetail' feature.slug %}" 
+                                           class="btn btn-sm btn-outline-primary text-decoration-none">
+                                            View
+                                        </a>
+                                    </div>
+                                    <small class="text-muted">9 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-      </div>
     </div>
-  
+
+    <!-- Recent Items Section -->
+    <div class="album py-5 bg-white">
+        <div class="container">
+            <div class="row d-flex row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                {% for recent in recentitem %}
+                    <div class="col">
+                        <div class="card shadow-sm h-100 border-0">
+                            <img src="{{ recent.img.url }}" class="card-img-top rounded" alt="{{ recent.name }}">
+                            <div class="card-body">
+                                <h3 class="card-title text-success">{{ recent.name }}</h3>
+                                <p class="card-text text-muted">{{ recent.des }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="{% url 'showdetail' recent.slug %}" 
+                                           class="btn btn-sm btn-outline-success text-decoration-none">
+                                            View
+                                        </a>
+                                    </div>
+                                    <small class="text-muted">9 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </main>
 {% endblock %}
+<<<<<<< HEAD
 >>>>>>> a51b610 (categories crud operation)
+=======
+>>>>>>> a6a901d (added blog)

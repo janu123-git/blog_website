@@ -1,41 +1,48 @@
 {%extends "doc/Base.html"%}
 {%block content%}
-<div class="container">
-    <div class="row shadow-sm  p-3">
-      <!-- load leftside bar  -->
-       {%include "dashboard/leftside.html"%}
-       <div class="col-8 mt-5">
-        <h1>All category</h1>
-        <h5><a href="{%url 'add_category'%}"class="text-decoration-none btn btn-dark  float-left">add category</a></h5>
-        <table class="table table-success table-striped">
-        <thead>
-          <tr>
-            <th scope="col">id</th>
-            <th scope="col">categories</th>
-            <th scope="col">url</th>
-            <th scope="col">created_At</th>
-            <th scope="col">updated_At</th>
-            <th scope="col">action</th>
-          </tr>
-        </thead>
-        <tbody>
-            {%for cat in navitem %}
-            <tr>
-            <th scope="row">{{cat.id}}</th>
-            <td>{{cat.Navname}}</td>
-            <td>{{cat.url}}</td>
-            <td>{{cat.created_at}}</td>
-            <td>{{cat.updated_at}}</td>
-            <td>
-               <a href="{%url 'edit_cat' cat.id %}"> <i class="fa-regular fa-pen-to-square"></i></a>&nbsp;
-               <a href="{%url 'delete_cat' cat.id %}"><i class="fa-solid fa-delete-left"></i></a> 
-            </td>
-          </tr>
-          {%endfor%}
-          
-        </tbody>
-      </table>
-      </div>
+<div class="container my-5">
+    <div class="row shadow-sm p-3 bg-light rounded">
+        <!-- Load left sidebar -->
+        {%include "dashboard/leftside.html"%}
+        
+        <div class="col-8 mt-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1 class="text-primary">All Categories</h1>
+                <a href="{%url 'add_category'%}" class="btn btn-dark">Add Category</a>
+            </div>
+            
+            <table class="table table-success table-striped table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Categories</th>
+                        <th scope="col">URL</th>
+                        <th scope="col">Created At</th>
+                        <th scope="col">Updated At</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for cat in navitem %}
+                    <tr>
+                        <td>{{cat.id}}</td>
+                        <td>{{cat.Navname}}</td>
+                        <td>{{cat.url}}</td>
+                        <td>{{cat.created_at}}</td>
+                        <td>{{cat.updated_at}}</td>
+                        <td>
+                            <a href="{%url 'edit_cat' cat.id %}" class="text-decoration-none text-primary me-3">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </a>
+                            <a href="{%url 'delete_cat' cat.id %}" class="text-decoration-none text-danger">
+                                <i class="fa-solid fa-trash"></i>
+                            </a> 
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 {%endblock%}

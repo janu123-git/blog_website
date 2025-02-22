@@ -1,10 +1,50 @@
 {%extends "doc/Base.html"%}
 {%block content%}
-<div class="container">
-    <div class="row shadow-sm  p-3">
-      <!-- load leftside bar  -->
-       {%include "dashboard/leftside.html"%}
-    
+<div class="container my-5">
+    <div class="row shadow-sm p-3 bg-light rounded">
+        <!-- Load left sidebar -->
+        {%include "dashboard/leftside.html"%}
+        
+        <div class="col-8 mt-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1 class="text-primary">All Posts</h1>
+                <a href="{%url 'addpost'%}" class="btn btn-dark">Add Post</a>
+            </div>
+            
+            <table class="table table-success table-striped table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Is Show</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for post in Posts%}
+                    <tr>
+                        <td>{{post.name}}</td>
+                        <td><img src="{{post.img.url}}" alt="{{post.name}}" class="img-fluid rounded" style="width: 50px; height: auto;"></td>
+                        <td>{{post.des}}</td>
+                        <td>{{post.is_show}}</td>
+                        <td>{{post.status}}</td>
+                        <td>{{post.author}}</td>
+                        <td>
+                            <a href="{% url 'editpost' post.id %}" class="text-decoration-none text-primary me-3">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </a>
+                            <a href="{%url 'delete_post' post.id%}" class="text-decoration-none text-danger">
+                                <i class="fa-solid fa-trash"></i>
+                            </a> 
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 {%endblock%}

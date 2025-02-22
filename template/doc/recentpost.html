@@ -1,0 +1,33 @@
+{%extends "doc/Base.html"%}
+{%block content%}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <h1 class="text-center text-capitalize">Recent post</h1>
+        <!-- Featured Items Section -->
+        <div class="row d-flex row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+         
+            {% for recent in recentpost %}
+                <div class="col">
+                    <div class="card shadow-sm h-100">
+                        <img src="{{ recent.img.url }}" class="card-img-top" alt="{{recent.name }}">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ recent.name }}</h3>
+                            <p class="card-text">{{ recent.des }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{% url 'showdetail' recent.slug %}" 
+                                       class="btn btn-sm btn-outline-secondary text-decoration-none fs-6">
+                                        View
+                                    </a>
+                                </div>
+                                <small class="text-muted">9 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

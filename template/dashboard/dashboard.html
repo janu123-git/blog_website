@@ -1,17 +1,21 @@
 {%extends "doc/Base.html"%}
 {%block content%}
-<div class="container">
-    <div class="row shadow-sm  p-3">
-      <!-- load leftside bar  -->
-       {%include "dashboard/leftside.html"%}
-    <div class="col-4 shadow-sm text-center ">
-        <h1 class="border border-4"style="width: 100%; overflow: hidden;">Category</h1>
-       <h4>{{navitem_count}}</h4>
-    </div>
-    <div class="col-4 shadow-sm text-center ">
-        <h1 class="border border-4 bg-white-40"style="width: 100%; overflow: hidden;">Post</h1>
-        <h4>{{post_count}}</h4>
-    </div>
+<div class="container my-5">
+    <div class="row shadow-sm p-3 bg-light rounded">
+        <!-- Load left sidebar -->
+        {%include "dashboard/leftside.html"%}
+        
+        <!-- Category Section -->
+        <div class="col-4 shadow-sm text-center py-3">
+            <h1 class="border border-4 rounded py-2 bg-primary text-white" style="overflow: hidden;">Category</h1>
+            <h4 class="mt-3 text-secondary">{{navitem_count}}</h4>
+        </div>
+
+        <!-- Post Section -->
+        <div class="col-4 shadow-sm text-center py-3">
+            <h1 class="border border-4 rounded py-2 bg-secondary text-white" style="overflow: hidden;">Post</h1>
+            <h4 class="mt-3 text-secondary">{{post_count}}</h4>
+        </div>
     </div>
 </div>
 {%endblock%}

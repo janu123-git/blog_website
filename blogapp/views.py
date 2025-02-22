@@ -6,7 +6,7 @@ def index(request):
     return render(request,"doc/index.html")
 =======
 from django.shortcuts import render,redirect,HttpResponse
-from . models import NavItem,Post
+from . models import NavItem,Post,Comment
 from .forms import CustomUserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 # from django.contrib.auth import authenticate
@@ -39,10 +39,20 @@ def showcategory(request,id):
     return render(request,"doc/category.html",data)
 def showdetail(request,slug):
     postshow=Post.objects.get(slug=slug)
+    comments=Comment.objects.filter(post=postshow)
+    comments_count=comments.count()
     context={
-        'postshow':postshow
+        'postshow':postshow,
+        'comments':comments,
+        'comments_count':comments_count
     }
     return render(request,"doc/showdetails.html",context)
+def feature_post(request):
+   featureitem=Post.objects.filter(status='feature',is_show=True)
+   return render(request,"doc/featuepost.html",{'featureitem':featureitem})
+def recent_post(request):
+   recentpost=Post.objects.filter(status='Recent',is_show=True)
+   return render(request,'doc/recentpost.html',{'recentpost':recentpost})
 def searchitem(request):
     if request.method=="GET":
         search=request.GET.get("search")
