@@ -1,0 +1,32 @@
+{%extends "doc/Base.html"%}
+{%block content%}
+
+{%if items%}
+<div class="container">
+    <div class="row d-flex row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {%for i in items%}
+        <div class="col">
+            <div class="card shadow-sm ">
+                <img src="{{i.img.url}}">
+                <div class="card-body">
+                    <h1><a href="{%url 'showdetail' i.slug%}">{{i.name}}</a></h1>
+                            <p class="card-text" style="font-size:20px"> {{i.des}}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                               
+                <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{%url 'showdetail' i.slug%}"class="text-decoration-none fs-6">View</a></button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                                <small class="text-muted" style="font-size:20px">9 mins</small>
+                            </div>
+                </div>
+            </div>
+
+
+            {%endfor%}
+        </div>
+    </div>
+    {%else%}
+    <h2>result not found</h2>
+    {%endif%}
+    {%endblock%}

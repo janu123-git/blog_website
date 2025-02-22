@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -13,3 +14,83 @@
     <h1>hello weolceme</h1>
 </body>
 </html>
+=======
+{%extends "doc/Base.html"%}
+{%block content%}
+<main>
+
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Album example</h1>
+          <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+          <p>
+            <a href="" class="btn btn-primary my-2">Featured post</a>
+            <a href="#" class="btn btn-secondary my-2">Recent post</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <div class="album py-5 bg-light">
+      <div class="container">
+  
+        <div class="row d-flex row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {%for feature in featureitem%}
+        <div class="col">
+            <div class="card shadow-sm">
+                <img src="{{feature.img.url}}">
+                <div class="card-body">
+                  <h3>{{feature.name}}</h3>
+                  <p class="card-text"> {{feature.des}}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{%url 'showdetail' feature.slug%}"class="text-decoration-none fs-6">View</a></button>
+               
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+        </div>
+         
+        
+        
+            {%endfor%}
+        </div>
+       
+         
+    </div>
+    <div class="container">
+  
+        <div class="row d-flex row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {%for recent in recentitem%}
+            <div class="col">
+               <div class="card shadow-sm">
+                   <img src="{{recent.img.url}}">
+                   <div class="card-body">
+                     <h3>{{recent.name}}</h3>
+                     <p class="card-text"> {{recent.des}}</p>
+                     <div class="d-flex justify-content-between align-items-center">
+                       <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{%url 'showdetail' recent.slug%}"class="text-decoration-none fs-6">View</a></button>
+                      </div>
+                       <small class="text-muted">9 mins</small>
+                     </div>
+                   </div>
+                 </div>
+            </div>
+            {%endfor%}     
+      
+        </div>
+       
+         
+    </div>
+        
+        </div>
+      </div>
+    </div>
+  
+</main>
+{% endblock %}
+>>>>>>> a51b610 (categories crud operation)

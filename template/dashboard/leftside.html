@@ -1,0 +1,10 @@
+<div class="col-3 shadow-xl">
+   
+    <h3 class="active p-2 mt-3 w-100 text-center shadow-sm border-radius-lg text-capitalize {%if request.path == '/dashboard/' %}bg-warning{%endif%} "><a href="{%url 'dashboard'%}"class="text-decoration-none ">Dashboard</a></h3>
+
+       
+    <h3 class="active p-2 mt-3 w-100  text-center shadow-sm border-radius-lg text-capitalize {%if request.path == '/categories/' %}bg-warning{%endif%}"><a href="{%url 'categories'%}"class="text-decoration-none ">categories</a></h3>
+
+    <h3 class="active p-2 mt-3 w-100  text-center shadow-sm border-radius-lg text-capitalize {%if request.path == '/posts/' %}bg-warning{%endif%}"><a href="{%url 'posts'%}"class="text-decoration-none ">post</a></h3>
+
+</div>

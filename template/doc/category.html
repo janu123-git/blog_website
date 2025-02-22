@@ -1,0 +1,29 @@
+{%extends "doc/Base.html"%}
+{%block content%}
+<div class="container">
+  
+    <div class="row d-flex row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {%for feature in catitem%}
+        <div class="col">
+        <div class="card shadow-sm ">
+          <img src="{{feature.img.url}}">
+          <div class="card-body">
+            <h1>{{feature.name}}<h1>
+            <p class="card-text"style="font-size:20px"> {{feature.des}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{%url 'showdetail' feature.slug%}"class="text-decoration-none fs-6">View</a></button>
+                <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+              </div>
+              <small class="text-muted"style="font-size:20px">9 mins</small>
+            </div>
+          </div>
+        </div>
+    
+    
+        {%endfor%}
+    </div>
+     
+     
+</div>
+{%endblock%}
